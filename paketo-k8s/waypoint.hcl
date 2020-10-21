@@ -27,6 +27,7 @@ app "k8s-nodejs" {
 
   release {
     use "kubernetes" {
+      load_balancer = true
     }
   }
 }
