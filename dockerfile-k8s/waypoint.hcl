@@ -1,6 +1,6 @@
 project = "k8s-dockerfile-java"
 
-app "k8s-dockerfil-java" {
+app "k8s-dockerfile-java" {
   labels = {
     "service" = "k8s-dockerfile-java",
     "env" = "dev"
@@ -8,13 +8,13 @@ app "k8s-dockerfil-java" {
 
   build {
     use "docker" {
-      disable_entrypoint = false
+      disable_entrypoint = true
       buildkit = false
     }
     registry {
       use "docker" {
         image = "gcr.io/se-kabu/example-java"
-        tag = "1"
+        tag = "2"
         local = false
       }
     }
@@ -23,11 +23,14 @@ app "k8s-dockerfil-java" {
   deploy {
     use "kubernetes" {
       probe_path = "/"
+      service_port = 8080
     }
   }
 
   release {
     use "kubernetes" {
+      port = 8080
+      load_balancer = true
     }
   }
 }
