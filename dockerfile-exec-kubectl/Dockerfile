@@ -1,0 +1,2 @@
+# nothing
+FROM nginx
