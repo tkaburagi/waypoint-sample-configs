@@ -1,7 +1,6 @@
 # Waypoint Sample Configs
 
 ## ami-ec2
-
 * Build: Finding AMI which runs apache
 * Deploy: Lauching EC2 with opening 80
 * Release: Set the ALB and target group to listenc at 80
@@ -34,3 +33,8 @@
 * Build: Generating the container by Paketo Buildpacks
 * Deploy: Deploying to K8s
 * Release: Releasing K8s `load_balancer`
+
+## dockerfile-exec-kubectl
+* Build: Static Nginx by Dockerfile
+* Deploy: Executing `kubectl` with deployment yaml by Exec Plugin
+* Release: including deployment yaml. No release from Waypoint side
